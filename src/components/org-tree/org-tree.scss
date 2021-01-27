@@ -6,24 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    &::after, &:not(:first-child)::before {
-      content: '';
-      position: absolute;
-      height: 10px;
-      border-top: 1px solid #eb5e0b;
-      top: 10px;
-      width: 50%;
-    }
-    &:last-child::after {
-      border-top: 1px solid transparent;
-    }
-    &::after {
-      left: 50%;
-      border-left: 1px solid #eb5e0b;
-    }
-    &::before {
-      left: 0;
-    }
   }
   & > &-node:first-child {
     &::after, &::before {
@@ -36,17 +18,49 @@
     white-space: nowrap;
   }
   &-node-children {
+    padding-top: 20px;
     position: relative;
-    display: flex;
     &::after {
       position: absolute;
       content: '';
-      height: 10px;
+      height: 20px;
       width: 2px;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
       background-color: green;
+    }
+    &-expand {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background-color: #351f39;
+    }
+  }
+  &-node-content {
+    position: relative;
+    display: flex;
+    .org-tree-node::after, .org-tree-node:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      height: 20px;
+      border-top: 1px solid #eb5e0b;
+      top: 0;
+      width: 50%;
+    }
+    .org-tree-node:last-child::after {
+      border-top: 1px solid transparent;
+    }
+    .org-tree-node::after {
+      left: 50%;
+      border-left: 1px solid #eb5e0b;
+    }
+    .org-tree-node::before {
+      left: 0;
     }
   }
 }

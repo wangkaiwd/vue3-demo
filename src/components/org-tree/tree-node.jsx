@@ -1,3 +1,4 @@
+const prefixCls = `org-tree-node`;
 export default {
   name: 'TreeNode',
   props: {
@@ -11,14 +12,19 @@ export default {
     const { slots } = ctx;
     return () => {
       return (
-        <div class="org-tree-node">
-          <div class="org-tree-node-label">
+        <div class={prefixCls}>
+          <div class={`${prefixCls}-label`}>
             {node.label}
           </div>
           {
             node?.children?.length > 0 &&
-            <div className="org-tree-node-children">
-              {slots.default()}
+            <div class={`${prefixCls}-children`}>
+              <div class={`${prefixCls}-content`}>
+                {slots.default()}
+              </div>
+              <div class={`${prefixCls}-children-expand`}>
+                +
+              </div>
             </div>
           }
         </div>
