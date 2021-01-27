@@ -17,11 +17,10 @@ export default {
           </div>
           {
             node?.children?.length > 0 &&
-            <div className="org-tree-node-children" style={{ border: '1px solid blue' }}>
+            <div className="org-tree-node-children">
               {slots.default()}
             </div>
           }
-
         </div>
       );
     };

@@ -25,7 +25,6 @@ export default {
         </TreeNode>
       );
     };
-    console.log(data);
     return () => <div class="org-tree">{renderNode(data)}</div>;
   }
 };

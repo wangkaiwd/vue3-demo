@@ -1,10 +1,34 @@
 .org-tree {
   display: inline-block;
   &-node {
+    position: relative;
     padding: 20px 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    &::after, &:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      height: 10px;
+      border-top: 1px solid #eb5e0b;
+      top: 10px;
+      width: 50%;
+    }
+    &:last-child::after {
+      border-top: 1px solid transparent;
+    }
+    &::after {
+      left: 50%;
+      border-left: 1px solid #eb5e0b;
+    }
+    &::before {
+      left: 0;
+    }
+  }
+  & > &-node:first-child {
+    &::after, &::before {
+      content: none;
+    }
   }
   &-node-label {
     border: 1px solid pink;
@@ -20,7 +44,8 @@
       height: 10px;
       width: 2px;
       top: 0;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: green;
     }
   }
