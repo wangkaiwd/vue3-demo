@@ -1,0 +1,27 @@
+.org-tree {
+  display: inline-block;
+  &-node {
+    padding: 20px 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-node-label {
+    border: 1px solid pink;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+  &-node-children {
+    position: relative;
+    display: flex;
+    &::after {
+      position: absolute;
+      content: '';
+      height: 10px;
+      width: 2px;
+      top: 0;
+      left: 0;
+      background-color: green;
+    }
+  }
+}

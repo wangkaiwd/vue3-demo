@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <org-tree :data="data"></org-tree>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { reactive, toRefs } from 'vue';
+import { dataSource } from '@/components/org-tree/data-source';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {},
+  setup () {
+    const state = reactive({
+      data: dataSource
+    });
+    return {
+      ...toRefs(state)
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
